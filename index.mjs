@@ -1,4 +1,6 @@
 import {
+  getAlbumByArtist,
+  getAlbumByGenre,
   getAlbumWithFewestGenres,
   getAlbumWithMostOfGenres,
   getAlbumWithTeMostOfSale,
@@ -77,6 +79,23 @@ if (command === "most-genre") {
 } else if (command === 'year') {
   const year = Number(process.argv[3]);
   getAlbumWithYearOf(bestSellingAlbums, year);
-} else {
+} else if(command ==='artist'){
+  const artist = process.argv[3];
+  getAlbumByArtist(bestSellingAlbums, artist);
+} else if (command === 'genres'){
+  const genres = process.argv[3];
+  getAlbumByGenre(bestSellingAlbums, genres);
+}
+  else {
   console.log("i do not understand", command);
 }
+
+
+
+//1.
+//search album by artist 
+//node index.mjs artist "Michael Jackson"
+//2.
+//search album by genre
+//node index.mjs genre rock
+
